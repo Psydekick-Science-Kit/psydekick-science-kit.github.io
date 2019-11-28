@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Psydekick Science Kit</title>
+		<script>
+			function animate(){
+				let cape = document.getElementById('cape');
+				let segments = cape.pathSegList;
+				let waveParameters = [
+					{ indices: [0, 8], amplitude: 1, speed: 1.75},
+					{ indices: [7], amplitude: .75, speed: 2.5},
+				];
+
+				let baseCoords = [];
+				for(let seg of segments){
+					baseCoords.push([seg.x, seg.y])
+				}
+
+				let tick = function(){
+					let now = Date.now()/1000;
+
+					for(let params of waveParameters){
+						for(let index of params.indices){
+							segments[index].y = baseCoords[index][1] + Math.sin(params.speed*now)*params.amplitude;
+						}
+
+					}
+				};
+				let timer = setInterval(tick, 1000/30);
+
+			}
+		</script>
+
+		<style>
+			html {
+				height: 100%;
+			}
+
+			body {
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				height: 100%;
+
+				background-color: #ccc;
+			}
+		</style>
+	</head>
+
+	<body onload="animate();">
+		<div>
+
+			<svg
+				xmlns="http://www.w3.org/2000/svg"
+				enable-background="new"
+				id="svg2369"
+				version="1.1"
+				viewBox="0 0 105.83333 66.145835"
+				height="250"
+				width="400">
+				<title>The Psydekick logo</title>
+				<defs
+					id="defs2363">
+					<clipPath
+						id="clipPath99"
+						clipPathUnits="userSpaceOnUse">
+						<circle
+							style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2.11666679;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:stroke markers fill"
+							id="circle101"
+							cx="53.797504"
+							cy="15.405462"
+							r="12.013469" />
+					</clipPath>
+				</defs>
+				<g
+					style="opacity:1"
+					id="layer1">
+					<circle
+						r="12.013469"
+						cy="15.405462"
+						cx="53.797504"
+						id="circle2494"
+						style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2.11666679;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:stroke markers fill" />
+					<circle
+						r="12.013469"
+						cy="15.405462"
+						cx="53.797504"
+						id="circle185"
+						style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:2.11666679;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:stroke markers fill" />
+					<g
+						style=""
+						clip-path="url(#clipPath99)"
+						id="g53">
+						<path
+							style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#808080;fill-opacity:1;stroke:#000000;stroke-width:2.11666656;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke markers fill"
+							d="M 19.346528,28.181297 C 19.551047,30.624949 21.129948,31.969897 22.791887,35.842297 23.131657,38.254081 21.604977,40.27248 20.984462,42.482582 21.087969,43.279806 22.598681,50.144915 24.606898,49.039394 26.607097,48.33166 23.1447,45.68785 23.615282,43.503295 28.570458,34.133924 26.08482,30.918288 28.329206,27.677751 L 35.899187,28.273629 40.728257,32.940804 C 41.736543,36.284991 41.934958,38.929016 41.999405,42.692542 L 45.511796,47.067546 C 46.397533,48.509585 48.534549,47.66418 47.403967,46.197351 L 44.609989,42.114526 C 44.40547,38.246137 43.872335,35.582296 44.559422,31.318043 37.502258,24.668289 32.12819,22.720414 19.346557,28.181297 Z"
+							id="path3864-7" />
+						<path
+							id="path3870-9"
+							d="M 37.1363,19.471364 C 38.302361,18.880105 39.5469,18.327933 41.29717,18.028962 L 46.234706,14.589268 51.17235,7.7098811 C 52.844542,7.4773619 54.215644,6.9436201 57.441518,8.2645741 L 58.051771,9.5405661 62.656386,10.483738 C 62.654786,14.19636 60.246459,14.043607 58.273741,14.589268 L 54.445643,15.421516 C 49.04193,22.581395 54.311271,24.276337 47.177948,29.845907 50.868993,31.041007 55.732918,31.744243 52.55997,34.705094 51.02668,35.680843 50.269091,36.891068 48.505144,36.823834 46.823347,36.268725 47.837292,35.964687 48.89582,35.117754 L 51.00672,33.429102 44.672042,32.26866 C 42.637452,32.764317 40.115306,32.500445 38.11194,32.21604 34.047845,31.638658 31.333954,30.234095 27.372308,29.124709 20.530973,31.242812 23.636529,36.609625 12.393079,45.712802 10.870399,47.868745 13.40364,52.350565 10.900886,52.191106 8.2050214,52.460241 9.7500774,44.297715 10.007439,43.382691 11.708207,41.268577 14.305638,39.782069 15.056041,37.002754 15.039151,29.512992 13.115708,27.014805 18.162775,22.078911 14.107358,12.50362 16.654109,7.1204326 21.879852,3.4380623 15.638757,13.347836 17.740456,17.258173 20.659118,20.580848 26.225619,19.934763 31.42888,19.061127 37.1363,19.471266 Z"
+							style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#ff7f50;fill-opacity:1;stroke:#000000;stroke-width:2.11666656;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke markers fill" />
+						<path
+							d="M 38.494944,30.321789 C 36.892613,29.305287 37.157665,28.689456 37.886386,27.636385 M 50.271862,13.77026 C 52.76884,13.665266 52.113363,12.544277 52.039887,10.35096 M 47.177947,29.845903 41.935541,28.182681"
+							style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:none;fill-opacity:1;stroke:#000000;stroke-width:1.05833328;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke markers fill"
+							id="path3876-0" />
+					</g>
+					<path
+						id="cape"
+						d="M 13.829046,27.53472 C 24.602672,25.750048 39.210345,23.929663 45.865606,19.340244 L 51.269754,24.346922 C 51.375219,23.862629 51.436996,23.376024 51.497745,22.874684 H 51.504145 L 51.934154,20.274188 46.237095,14.591378 C 35.768167,17.912129 28.347668,9.1620629 19.33149,14.888889 24.24944,19.104275 14.813576,21.83846 13.829046,27.53472 Z"
+						style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;opacity:1;fill:#4484ce;fill-opacity:1;stroke:#000000;stroke-width:2.11666656;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:stroke markers fill" />
+				</g>
+				<g
+					style="opacity:1"
+					id="layer2">
+					<text
+						id="text2512"
+						y="48.19672"
+						x="5.7122312"
+						style="font-style:normal;font-weight:normal;font-size:22.04416466px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#f2a557;fill-opacity:1;stroke:#000000;stroke-width:2.11666679;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;paint-order:stroke markers fill"
+						xml:space="preserve"><tspan
+							style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Impact;-inkscape-font-specification:Impact;fill:#f2a557;fill-opacity:1;stroke:#000000;stroke-width:2.11666679;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;paint-order:stroke markers fill"
+							y="48.19672"
+							x="5.7122312"
+							id="tspan2510"><tspan
+							style="fill:#ff7f50;fill-opacity:1;stroke-width:2.11666679;stroke-miterlimit:4;stroke-dasharray:none"
+							id="tspan2506">Psyde</tspan><tspan
+							id="tspan2508"
+							style="fill:#4484ce;fill-opacity:1;stroke-width:2.11666679;stroke-miterlimit:4;stroke-dasharray:none">Kick</tspan></tspan></text>
+					<text
+						xml:space="preserve"
+						style="font-style:normal;font-weight:normal;font-size:12.56552219px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.31413805"
+						x="23.757656"
+						y="62.545231"
+						id="text2516"><tspan
+							id="tspan2514"
+							x="23.757656"
+							y="62.545231"
+							style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Impact;-inkscape-font-specification:Impact;stroke-width:0.31413805">Science Kit</tspan></text>
+				</g>
+			</svg>
+		</div>
+
+		<div>(coming soon)</div>
+
+	</body>
+</html>
